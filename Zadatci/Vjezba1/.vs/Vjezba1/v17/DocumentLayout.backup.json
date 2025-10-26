@@ -1,13 +1,13 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Vjezba1\\Vjezba1\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Zadatci\\Vjezba1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A26BA86A-8710-4E85-8FEE-F7BD4C803049}|Vjezba1\\Vjezba1.vcxproj|C:\\Users\\User\\Desktop\\Strukture Podataka\\Vjezba1\\Vjezba1\\Vjezba1\\vjezba1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A26BA86A-8710-4E85-8FEE-F7BD4C803049}|Vjezba1\\Vjezba1.vcxproj|C:\\Users\\User\\Desktop\\Strukture Podataka\\Zadatci\\Vjezba1\\Vjezba1\\vjezba1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A26BA86A-8710-4E85-8FEE-F7BD4C803049}|Vjezba1\\Vjezba1.vcxproj|solutionrelative:Vjezba1\\vjezba1.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A26BA86A-8710-4E85-8FEE-F7BD4C803049}|Vjezba1\\Vjezba1.vcxproj|C:\\Users\\User\\Desktop\\Strukture Podataka\\Vjezba1\\Vjezba1\\Vjezba1\\info.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{A26BA86A-8710-4E85-8FEE-F7BD4C803049}|Vjezba1\\Vjezba1.vcxproj|C:\\Users\\User\\Desktop\\Strukture Podataka\\Zadatci\\Vjezba1\\Vjezba1\\info.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{A26BA86A-8710-4E85-8FEE-F7BD4C803049}|Vjezba1\\Vjezba1.vcxproj|solutionrelative:Vjezba1\\info.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
@@ -37,29 +37,27 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\ucrt\\stdio.h",
               "ViewState": "AgIAABoEAAAAAAAAAADgvysEAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-10-12T00:47:22.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-12T00:47:22.834Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "info.txt",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Vjezba1\\Vjezba1\\Vjezba1\\info.txt",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Zadatci\\Vjezba1\\Vjezba1\\info.txt",
               "RelativeDocumentMoniker": "Vjezba1\\info.txt",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Vjezba1\\Vjezba1\\Vjezba1\\info.txt",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Zadatci\\Vjezba1\\Vjezba1\\info.txt",
               "RelativeToolTip": "Vjezba1\\info.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-10-11T23:37:09.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-11T23:37:09.983Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "vjezba1.c",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Vjezba1\\Vjezba1\\Vjezba1\\vjezba1.c",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Zadatci\\Vjezba1\\Vjezba1\\vjezba1.c",
               "RelativeDocumentMoniker": "Vjezba1\\vjezba1.c",
-              "ToolTip": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Vjezba1\\Vjezba1\\Vjezba1\\vjezba1.c",
+              "ToolTip": "C:\\Users\\User\\Desktop\\Strukture Podataka\\Zadatci\\Vjezba1\\Vjezba1\\vjezba1.c",
               "RelativeToolTip": "Vjezba1\\vjezba1.c",
               "ViewState": "AgIAABEAAAAAAAAAAAAwwCMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",

@@ -1,0 +1,5 @@
+﻿  vjezba2-3.c
+C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba2-3\Vjezba2-3\Vjezba2-3\vjezba2-3.c(71,4): warning C4013: 'addBeginning' undefined; assuming extern returning int
+C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba2-3\Vjezba2-3\Vjezba2-3\vjezba2-3.c(79,4): warning C4013: 'addToEnd' undefined; assuming extern returning int
+C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba2-3\Vjezba2-3\Vjezba2-3\vjezba2-3.c(89,36): warning C4553: '==': result of expression not used; did you intend '='?
+  Vjezba2-3.vcxproj -> C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba2-3\Vjezba2-3\x64\Debug\Vjezba2-3.exe

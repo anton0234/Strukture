@@ -1,0 +1,5 @@
+﻿  vjezba3.c
+C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba3\Project1\Project1\vjezba3.c(88,4): warning C4013: 'addBeginning' undefined; assuming extern returning int
+C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba3\Project1\Project1\vjezba3.c(96,4): warning C4013: 'addToEnd' undefined; assuming extern returning int
+C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba3\Project1\Project1\vjezba3.c(106,36): warning C4553: '==': result of expression not used; did you intend '='?
+  Project1.vcxproj -> C:\Users\User\Desktop\Strukture Podataka\Zadatci\Vjezba3\Project1\x64\Debug\Project1.exe

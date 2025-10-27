@@ -48,8 +48,8 @@ Position createPerson();
 
 
 //3 zadatak
-int addafterFoundPerson(Position,char*);
-int addbeforeFoundPerson(Position,char*);
+int addafterFoundPerson(Position, char*);
+int addbeforeFoundPerson(Position, char*);
 int sort(Position);
 int addtoFile(Position);
 int readfromFile();
@@ -69,10 +69,10 @@ int main()
 	int action = -1;
 	char surname[MAX_LENGTH] = "";
 
-	printf("Choose Action from the list:\n1 - Add new Person to the top of the list\n2 - Print list\n3 - Add new Person to the end of the list\n4 - Find a Person by surname\n5 - Delete a Person from the list\n");
+	printf("Choose Action from the list:\n1 - Add new Person to the top of the list\n2 - Print list\n3 - Add new Person to the end of the list\n4 - Find a Person by surname\n5 - Delete a Person from the list\n6-Add person after the surname\n7- add person before the surname\n 8- Sort through list using surnames\n");
 
 	do {
-		printf("Type a number 1-5 for listed actions or 0 to end program: ");
+		printf("Type a number 1-6 for listed actions or 0 to end program: ");
 		if (!scanf(" %d", &action)) {
 			printf("Scanf error while choosing action\n");
 			exit(ERROR_SCANF);
@@ -125,11 +125,24 @@ int main()
 			else
 				addafterFoundPerson(&head, surname);
 			break;
+		case 7:
+			printf("Enter surname of a Person to add char before him: ");
+			if (!scanf("%s", surname)) {
+				printf("Scanf error while entering surname to delete\n");
+				exit(ERROR_SCANF);
+			}
+			else
+				addbeforeFoundPerson(&head, surname);
+			break;
+		case 8:
+			sort(&head);
+			break;
 
 		default:
 			printf("Invalid input! Try again!\n");
 			break;
 		}
+
 	} while (action != 0);
 
 
@@ -257,7 +270,7 @@ int addBeginning(Position head)
 int deletePerson(Position head, char* lastName)
 {
 	Position localPos = head;
-	Position Person = findbylastName(head,lastName);
+	Position Person = findbylastName(head, lastName);
 	if (Person == NULL)
 	{
 		return NOT_FOUND;
@@ -280,35 +293,67 @@ int deletePerson(Position head, char* lastName)
 }
 int addafterFoundPerson(Position head, char* lastName)
 {
-	Position found = findbylastName(head,lastName);
-	if (found = NULL)
+	Position localPos = head;
+
+	Position found = findbylastName(head, lastName);
+	if (found == NULL)
 	{
 		return ERROR_MALLOC;
+	}
+	while (localPos!= found)
+	{
+		localPos = localPos->next;
 	}
 
 	Position novi = createPerson();
-	if( novi = NULL)
+	if (novi == NULL)
 	{
 		return ERROR_MALLOC;
 	}
-	novi->next =found->next;
-	found->next = novi;
+	novi->next = localPos->next;
+	localPos->next = novi;
 
 	return EXIT_SUCCESS;
 }
 int addbeforeFoundPerson(Position head, char* lastName)
 {
-	Position temp = findbylastName(head,lastName);
+	Position temp = findbylastName(head, lastName);
 	if (temp == NULL)
 	{
-		return ERROR_MALLOC;
+		return NOT_FOUND;
 	}
-	while (head->next != temp)
+
+	while (head->next != temp && head->next !=NULL)
 	{
 		head = head->next;
 	}
-	Position newPerson = createPerson;
-	head->next = newPerson;
+	Position newPerson = createPerson();
 	newPerson->next = temp;
+	head->next = newPerson;
+
 	return EXIT_SUCCESS;
 }
+
+//sortira listu po prezimenima
+int sort(Position head)
+{
+	int elements=0;
+	Position i, j;
+	char temp[50];
+	for (i = head; i !=NULL; i=i->next)
+	{
+		for (j = head; j->next !=NULL; j=j->next)
+		{
+			if (strcmp(j->lastName,j->next->lastName)>0)
+			{
+				strcpy(temp, j->lastName);
+				strcpy(j->lastName, j->next->lastName);
+				strcpy(j->next->lastName, temp);
+			}
+		}
+	}
+	return EXIT_SUCCESS;
+
+
+}
+

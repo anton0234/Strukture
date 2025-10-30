@@ -9,6 +9,7 @@
 #define ERROR_MALLOC -2
 #define ERROR_SCANF -3
 #define NOT_FOUND -4
+#define ERROR_FILE -5
 
 
 /*2. Definirati strukturu osoba (ime, prezime, godina rođenja) i napisati program koji:
@@ -25,6 +26,7 @@ U zadatku se ne smiju koristiti globalne varijable.*/
 A. dinamički dodaje novi element iza određenog elementa,
 B. dinamički dodaje novi element ispred određenog elementa,
 C. sortira listu po prezimenima osoba,
+
 D. upisuje listu u datoteku,
 E. čita listu iz datoteke.*/
 
@@ -52,7 +54,7 @@ int addafterFoundPerson(Position, char*);
 int addbeforeFoundPerson(Position, char*);
 int sort(Position);
 int addtoFile(Position);
-int readfromFile();
+int readfromFile(Position);
 
 
 
@@ -69,12 +71,12 @@ int main()
 	int action = -1;
 	char surname[MAX_LENGTH] = "";
 
-	printf("Choose Action from the list:\n1 - Add new Person to the top of the list\n2 - Print list\n3 - Add new Person to the end of the list\n4 - Find a Person by surname\n5 - Delete a Person from the list\n6-Add person after the surname\n7- add person before the surname\n 8- Sort through list using surnames\n");
+	printf("Choose:\n1 - Add new Person top \n2 - Print list\n3 - Add to the end of the list\n4 - Find a Person by lastname\n5 - Delete a Person from the list\n6-Add person after the surname\n7- add person before the surname\n 8- Sort through list using surnames\n 9- add to file\n 10- read from file\n");
 
 	do {
 		printf("Type a number 1-6 for listed actions or 0 to end program: ");
 		if (!scanf(" %d", &action)) {
-			printf("Scanf error while choosing action\n");
+			printf("Scanf error\n");
 			exit(ERROR_SCANF);
 			continue;
 		}
@@ -138,6 +140,13 @@ int main()
 			sort(&head);
 			break;
 
+		case 9:
+			addtoFile(&head);
+			break;
+		case 10:
+			readfromFile(&head);
+			break;
+
 		default:
 			printf("Invalid input! Try again!\n");
 			break;
@@ -170,6 +179,40 @@ int printList(Position head)
 	return EXIT_SUCCESS;
 }
 
+
+//nova osoba u listi -> koristi se u drugim funkcijama
+Position createPerson()
+{
+	Position newPerson = malloc(sizeof(Person)); //alociran memoriju za novi person velicine person
+	if (newPerson == NULL)
+	{
+		printf("MALLOC error");
+		exit(ERROR_MALLOC);
+	}
+
+	printf("New person's name: ");
+	if (!scanf(" %s", newPerson->name))
+	{
+		printf("Scanf error");
+		exit(ERROR_SCANF);
+	}
+
+	printf("New person's surname: ");
+	if (!scanf(" %s", newPerson->lastName))
+	{
+		printf("Scanf error");
+		exit(ERROR_SCANF);
+	}
+
+	printf("New person's birth year: ");
+	if (!scanf(" %d", &newPerson->birthYear))
+	{
+		printf("Scanf error");
+		exit(ERROR_SCANF);
+	}
+	newPerson->next = NULL;
+	return newPerson;
+}
 int addToEnd(Position head)
 {
 	Position newPerson = createPerson();
@@ -217,41 +260,6 @@ Position findbylastName(Position head, char* lastName)
 
 	printf("nije se pronasla osoba");
 	return NULL;
-}
-
-
-//nova osoba u listi -> koristi se u drugim funkcijama
-Position createPerson()
-{
-	Position newPerson = malloc(sizeof(Person)); //alociran memoriju za novi person velicine person
-	if (newPerson == NULL)
-	{
-		printf("MALLOC error");
-		exit(ERROR_MALLOC);
-	}
-
-	printf("New person's name: ");
-	if (!scanf(" %s", newPerson->name))
-	{
-		printf("Scanf error");
-		exit(ERROR_SCANF);
-	}
-
-	printf("New person's surname: ");
-	if (!scanf(" %s", newPerson->lastName))
-	{
-		printf("Scanf error");
-		exit(ERROR_SCANF);
-	}
-
-	printf("New person's birth year: ");
-	if (!scanf(" %d", &newPerson->birthYear))
-	{
-		printf("Scanf error");
-		exit(ERROR_SCANF);
-	}
-	newPerson->next = NULL;
-	return newPerson;
 }
 int addBeginning(Position head)
 {
@@ -354,6 +362,77 @@ int sort(Position head)
 	}
 	return EXIT_SUCCESS;
 
+
+}
+int addtoFile(Position head)
+{
+	FILE* file = fopen("info.txt", "w");
+	if (file == NULL)
+	{
+		return ERROR_FILE;
+	}
+	if (head->next == NULL)
+	{
+		printf("prazna lista");
+			return NOT_FOUND;
+	}
+	head = head->next;
+	while (head != NULL)
+	{
+		fprintf(file, "% s\t % s\t % d\n", head->name, head->lastName, head->birthYear);
+		head = head->next;
+	}
+	fclose(file);
+}
+int readfromFile(Position head)
+{
+	FILE* file = fopen("info.txt", "r");
+	if (file == NULL)
+	{
+		return(ERROR_FILE);
+	}
+	char buffer[256];
+	int lines=0;
+	Position temporary = NULL;
+	while (head->next != NULL)
+	{
+		temporary = head->next;
+		head->next = head->next->next;
+		free(temporary);
+		printf("Person deleted!\n");
+	}
+	Position newPerson = NULL, previousPerson = head;
+
+
+
+	while (fgets(buffer, MAX_LENGTH, file) != NULL)
+	{
+		lines++;
+	}
+	rewind(file);
+
+	for (int i = 0; i < lines; i++)
+	{
+		
+		 newPerson = malloc(sizeof(Person));
+		if (newPerson == NULL)
+		{
+			return ERROR_MALLOC;
+		}
+		if (!fscanf(file, " %s %s %d ", newPerson->name, newPerson->lastName, &newPerson->birthYear))
+		{
+			fclose(file);
+			return ERROR_FILE;
+		}
+		newPerson->next = NULL;
+		previousPerson->next = newPerson;
+		previousPerson = previousPerson->next;
+
+
+	}
+	fclose(file);
+	printf("good read");
+	return EXIT_SUCCESS;
 
 }
 

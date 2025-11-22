@@ -345,20 +345,32 @@ int addbeforeFoundPerson(Position head, char* lastName)
 //sortira listu po prezimenima
 int sort(Position head)
 {
-	int elements=0;
 	Position i, j;
-	char temp[50];
-	for (i = head; i !=NULL; i=i->next)
+	char temp[128];
+	char tempName[128];
+	char tempLast[128];
+	int tempYear;
+	for(i=head;i->next!=NULL;i=i->next)
 	{
-		for (j = head; j->next !=NULL; j=j->next)
+	
+
+		for(j=head;j->next!=NULL;j=j->next)
 		{
 			if (strcmp(j->lastName,j->next->lastName)>0)
 			{
 				strcpy(temp, j->lastName);
 				strcpy(j->lastName, j->next->lastName);
 				strcpy(j->next->lastName, temp);
+				strcpy(tempName, j->name);
+				strcpy(j->name, j->next->name);
+				strcpy(j->next->name, tempName);
+				tempYear = j->birthYear;
+				j->birthYear = j->next->birthYear;
+				j->next->birthYear = tempYear;
+
 			}
 		}
+
 	}
 	return EXIT_SUCCESS;
 

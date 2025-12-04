@@ -153,7 +153,7 @@ int addPolynoms(Position polynom1, Position polynom2, Position sum) {
 		current1 = current1->next;
 	}
 
-	//checking if any member of polynom2 was skipped
+	//jel preskocen jedan od polynom2 
 	Position currentSum = sum->next;
 	int expPresent = 0;
 	while (current2 != NULL) {

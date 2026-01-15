@@ -5,7 +5,6 @@
 #define HASH_SIZE 11
 #define MAX 64
 
-/* ===== STRUKTURE ===== */
 
 typedef struct _city {
     char name[MAX];
@@ -20,13 +19,11 @@ typedef struct _country {
     struct _country* next;
 } Country;
 
-/* ===== HASH FUNKCIJA ===== */
 
 int hashFunction(char* countryName) {
     return ((int)countryName[0]) % HASH_SIZE;
 }
 
-/* ===== BST GRADOVA ===== */
 
 City* createCity(char* name, int population) {
     City* c = (City*)malloc(sizeof(City));
@@ -110,7 +107,6 @@ void loadCities(Country* country, char* filename) {
     fclose(f);
 }
 
-/* ===== UČITAVANJE DRŽAVA ===== */
 
 void loadCountries(Country* table[]) {
     FILE* f = fopen("drzave.txt", "r");
@@ -136,7 +132,6 @@ void loadCountries(Country* table[]) {
     fclose(f);
 }
 
-/* ===== ISPIS ===== */
 
 void printTable(Country* table[]) {
     for (int i = 0; i < HASH_SIZE; i++) {
@@ -152,7 +147,6 @@ void printTable(Country* table[]) {
     }
 }
 
-/* ===== PRETRAGA ===== */
 
 void searchCities(Country* table[]) {
     char country[MAX];
@@ -179,7 +173,6 @@ void searchCities(Country* table[]) {
     printCitiesAbove(c->cities, limit);
 }
 
-/* ===== MAIN ===== */
 
 int main() {
     Country* table[HASH_SIZE] = { NULL };
